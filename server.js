@@ -2,11 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const ExcelJS = require('exceljs');
-const PDFDocument = require('pdfkit'); // Import PDFKit
 const jwt = require('jsonwebtoken');
 const Expense = require('./models/Expense'); // Import the Expense model
 const nodemailer = require('nodemailer');
+const PORT = process.env.PORT || 5000;
 
 require('dotenv').config();
 
@@ -93,8 +92,6 @@ app.post('/api/expenses/export-to-mail', isAuthenticated, async (req, res) => {
   }
 });
 
-// Define the port
-const PORT = process.env.PORT || 5000;
 
 // Start server
 app.listen(PORT, () => {
