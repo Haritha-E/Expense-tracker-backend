@@ -13,7 +13,10 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://expense-tracker-frontend-40km.onrender.com', // Replace with your actual frontend URL
+}));
+
 app.use(bodyParser.json({ limit: '10mb' })); // Increase limit to handle PDF Blob
 app.use(bodyParser.urlencoded({ extended: true })); // To handle URL encoded data
 
